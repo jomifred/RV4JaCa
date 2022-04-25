@@ -11,9 +11,9 @@ apply plugin: 'java'
 apply plugin: 'eclipse'
 
 repositories {
-    maven { url "http://jacamo.sourceforge.net/maven2" }
+    //maven { url "http://jacamo.sourceforge.net/maven2" }
     maven { url "https://raw.github.com/jacamo-lang/mvn-repo/master" }
-    maven { url "https://repo.gradle.org/gradle/libs-releases-local" }
+    maven { url "https://repo.gradle.org/gradle/libs-releases" }
 
     //maven { url "https://jade.tilab.com/maven/" }
 
@@ -21,12 +21,12 @@ repositories {
        dirs 'lib'
     }
 
-    mavenCentral()    
+    mavenCentral()
 }
 
 dependencies {
-	compile group: 'org.jacamo' , name: 'jacamo'   , version: '0.9-SNAPSHOT'  , changing: true , transitive: true
-	compile files('lib/hsqldb.jar')
+	implementation ('org.jacamo:jacamo:1.1')
+	implementation files('lib/hsqldb.jar')
 }
 
 sourceSets {
