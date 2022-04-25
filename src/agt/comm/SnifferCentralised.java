@@ -25,8 +25,11 @@ public class SnifferCentralised extends AgArch implements MsgListener {
 
     @Override
     public void init() {
-        if (RunCentralisedMAS.getRunner() != null) // is it the case of centralised platform being used
+        System.out.println("SnifferCentralised.init()");
+        if (RunCentralisedMAS.getRunner() != null) {// is it the case of centralised platform being used
+            System.out.println("RunCentralisedMAS.getRunner() != null");
             CentralisedAgArch.addMsgListener(this);
+        }
     }
 
     // method called-back when some message is exchanged
@@ -35,7 +38,7 @@ public class SnifferCentralised extends AgArch implements MsgListener {
 
         // add a belief in the agent mind
         // format: msgSent(time(YY,MM,DD,HH,MM,SS),id,irt,ilf,sender,receiver,content)
-
+        System.out.println("msgSent called");
         Calendar now = new GregorianCalendar();
         Structure p = ASSyntax.createStructure("time",
                                                ASSyntax.createNumber(now.get(Calendar.YEAR)),
