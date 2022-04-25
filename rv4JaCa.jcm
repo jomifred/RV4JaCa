@@ -1,0 +1,22 @@
+/*
+    rv4JaCa
+    ---------------------------
+
+    JaCaMo Application File
+
+    Engelmann, Debora C.
+    April 25, 2022 - 17:10:14
+*/
+
+mas rv4JaCa {
+
+    agent bob:bob.asl
+    agent maria:maria.asl
+
+    agent monitor:monitor.asl {
+           agentArchClass: comm.SnifferCentralised    // driver for HSQLDB, // URL connection, // user, // password
+           beliefBaseClass: jason.bb.JDBCPersistentBB("org.hsqldb.jdbcDriver","jdbc:hsqldb:log","sa","","[msgSent(7,log)]")
+	}
+
+}
+
